@@ -16,6 +16,8 @@
  * specific language governing permissions and limitations
  * under the License.
  */
+var month=0;
+var year=0;
 var app = {
     // Application Constructor
     initialize: function() {
@@ -48,10 +50,50 @@ var app = {
     }
 };
 
-function cargaMes(){
-    var  hoy= new Date();
-    var diaUno= new Date();
+
+function loadMonth(isNext){
+
+$("#days").empty();
+var diaUno= new Date();
+    //Borramos los dias cargados
+if(isNext!=undefined){
+    if(isNext===true){
+        if(this.month==11){
+            month=0;
+            this.year++;
+        } else{
+            this.month++;
+        }
+    }else if(isNext===false){   
+        if(this.month==0){
+          this.month=11; 
+          this.year--;
+        }else{
+          this.month--;
+        }
+    }
+  
+diaUno.setMonth(this.month);
+diaUno.setYear(this.year);
+}else{//Primera carga
+    this.month=diaUno.getMonth();
+
+}
+
+ //   if(month!=undefined){
+  //      diaUno.setMonth(month);
+  //      if(month==11){
+  //          diaUno.setFullYear(diaUno.getFullYear()-1);
+           
+  //          this.year=year-1;
+  //      }
+  //  }else{//Primera carga
+        this.year=diaUno.getFullYear();
+  //  }
+
     diaUno.setDate(1);
+
+
      var vacios=6;
      if(diaUno.getDay()!=0){
          vacios=diaUno.getDay()-1;
@@ -71,11 +113,12 @@ function cargaMes(){
         diasHtml.append(li);
       }
 //Año
-$("#yearText").html("2"+hoy.getYear()-100);
+$("#yearText").html(this.year);
 //Mes
-$("#monthText").html(getMesTexto(hoy.getMonth()));
+$("#monthText").html(getMesTexto(diaUno.getMonth()));
 
 }
+
 
 function getMesTexto(mes){
     switch(mes){

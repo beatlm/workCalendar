@@ -25,7 +25,8 @@
     <title>Mi calendario</title>
 </head>
 
-<body>
+<body onload="loadMonth()">
+ 
     <!-- <div class="app">
       <h1>Hello PhoneGap</h1>
         <div id="deviceready" class="blink">
@@ -38,8 +39,8 @@
         <div class="month">
             <ul>
                 <li id="yearText" ></li>
-                <li class="prev">&#10094;</li>
-                <li class="next">&#10095;</li>
+                <li class="prev" onclick="loadMonth(false)">&#10094;</li>
+                <li class="next" onclick="loadMonth(true)">&#10095;</li>
                 <li id="monthText"></li>
             </ul>
         </div>
@@ -59,7 +60,7 @@
         </ul>
 
     </div>
-    <button onclick="cargaMes()">Carga mes</button>
+    <button onclick="loadMonth()">Carga mes</button>
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
     <script type="text/javascript">
