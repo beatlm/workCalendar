@@ -73,26 +73,14 @@ if(isNext!=undefined){
         }
     }
   
-diaUno.setMonth(this.month);
-diaUno.setYear(this.year);
+ diaUno.setMonth(this.month);
+ diaUno.setYear(this.year);
 }else{//Primera carga
     this.month=diaUno.getMonth();
+    this.year=diaUno.getFullYear();
 
 }
-
- //   if(month!=undefined){
-  //      diaUno.setMonth(month);
-  //      if(month==11){
-  //          diaUno.setFullYear(diaUno.getFullYear()-1);
-           
-  //          this.year=year-1;
-  //      }
-  //  }else{//Primera carga
-        this.year=diaUno.getFullYear();
-  //  }
-
     diaUno.setDate(1);
-
 
      var vacios=6;
      if(diaUno.getDay()!=0){
@@ -103,7 +91,8 @@ diaUno.setYear(this.year);
          var li = document.createElement("LI");
          diasHtml.append(li);
        }
-       for(j =1;j<31;j++){
+       var numberOfDays=daysInMonth(this.month,this.year);
+       for(j =1;j<numberOfDays;j++){
         var li = document.createElement("LI");
         li.innerHTML=j;
         diasHtml.append(li);
@@ -119,7 +108,9 @@ $("#monthText").html(getMesTexto(diaUno.getMonth()));
 
 }
 
-
+function daysInMonth (month, year) {
+    return new Date(year, month, 0).getDate();
+}
 function getMesTexto(mes){
     switch(mes){
         case 0:
