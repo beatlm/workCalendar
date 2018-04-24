@@ -34,8 +34,7 @@
             <p class="event received">Funciona!</p>
         </div>
     </div>-->
-
-    <div class="container">
+    <div id="monthData" class="container">
         <div class="month">
             <ul>
                 <li id="yearText" ></li>
@@ -44,7 +43,6 @@
                 <li id="monthText"></li>
             </ul>
         </div>
-
         <ul class="weekdays">
             <li>L</li>
             <li>M</li>
@@ -54,18 +52,41 @@
             <li>S</li>
             <li>D</li>
         </ul>
-
         <ul id="days" class="days">
- 
         </ul>
-
     </div>
-    <button onclick="loadMonth()">Carga mes</button>
+    <!--<button onclick="loadMonth()">Carga mes</button>-->
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
     <script type="text/javascript">
         app.initialize();
     </script>
+
+<div id="oneDay" class="container" hidden>
+        <div class="month">
+                <ul>
+                        
+                        <li class="prev" onclick="loadMonth()">&#10094;</li>
+                        <li id="dayText" ></li>
+                        <li id="monthText"></li>
+                    </ul>
+        <div>
+<div class="data">
+            <!-- Rounded switch -->
+<label class="switch"> 
+        <input type="checkbox" id="holidays">
+        <span class="slider round"></span>
+      </label>
+      <span>Vacaciones</span></br>
+ 
+<input type='text'><span>Horas extra</span></input></br>
+<button>Restar</button>
+<button>Sumar</button>
+
+    </div>
+</div>
+</div>
+</div>
 
 </body>
 

@@ -52,7 +52,8 @@ var app = {
 
 
 function loadMonth(isNext){
-
+$("#monthData").show();
+$("#oneDay").hide();
 $("#days").empty();
 var diaUno= new Date();
     //Borramos los dias cargados
@@ -95,6 +96,7 @@ if(isNext!=undefined){
        for(j =1;j<numberOfDays;j++){
         var li = document.createElement("LI");
         li.innerHTML=j;
+        li.addEventListener('click',loadDay,false);
         diasHtml.append(li);
       }
       for(i =0;i<vacios;i++){
@@ -105,7 +107,7 @@ if(isNext!=undefined){
 $("#yearText").html(this.year);
 //Mes
 $("#monthText").html(getMesTexto(diaUno.getMonth()));
-
+$("li").attr=('onClick','loadDay()');
 }
 
 function daysInMonth (month, year) {
@@ -138,4 +140,11 @@ function getMesTexto(mes){
         case 11:
         return "Diciembre";
     }
+}
+
+function loadDay(i){
+    //alert("load day :"+i.toElement.innerHTML);
+    $("#monthData").hide();
+    $("#oneDay").show();
+    $("#dayText").html(i.toElement.innerHTML+" "+getMesTexto(month)+" "+year);
 }
